@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>授业到天亮 - 深度阅读与知识分享平台</title>
+    <meta name="description" content="授业到天亮致力于提供深度的知识分享与阅读体验。涵盖文学、科技、历史、教育等多个领域，通过优质文章与互动社区，陪伴每一位求知者的深夜时光。">
+    <meta name="keywords" content="授业到天亮, 深度阅读, 知识分享, 夜读, 深度文章, 在线文库">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #fdfbf7;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #eaeaea;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .header-actions button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+        }
+
+        .header-actions button:hover {
+            background-color: #34495e;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 50px;
+            padding: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .search-box button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--accent-color);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .category-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .category-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Featured Articles */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .article-image {
+            height: 200px;
+            background-color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+
+        .article-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .article-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .article-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        .author-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .read-more {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Night Mode Section */
+        .night-mode-section {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            border-radius: 16px;
+            padding: 60px;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .night-content {
+            flex: 1;
+        }
+
+        .night-content h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .night-content p {
+            color: #aaa;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .night-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .night-img-placeholder {
+            flex: 1;
+            height: 300px;
+            background-color: #333;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .night-img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: #fff5eb;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 30px auto 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .night-mode-section {
+                flex-direction: column;
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form button {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">授业到天亮<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">深度阅读</a></li>
+                    <li><a href="#">知识图谱</a></li>
+                    <li><a href="#">社区讨论</a></li>
+                    <li><a href="#">专栏作者</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button>登录 / 注册</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>点亮知识，陪伴深夜</h1>
+                <p>在这里，我们致力于构建一个深度的知识分享社区。无论你是寻找学术资料，还是渴望深夜的心灵对话，授业到天亮都是你最好的选择。</p>
+                <form class="search-box" onsubmit="event.preventDefault();">
+                    <input type="text" placeholder="搜索书籍、文章、作者或话题...">
+                    <button type="submit">🔍</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>探索知识领域</h2>
+                    <p>从人文社科到前沿科技，多维度覆盖你的求知需求</p>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <span class="category-icon">📚</span>
+                        <h3>人文历史</h3>
+                        <p>穿越千年的智慧与文明</p>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">💻</span>
+                        <h3>前沿科技</h3>
+                        <p>人工智能与未来趋势</p>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">🎨</span>
+                        <h3>艺术设计</h3>
+                        <p>美学与创造力的源泉</p>
+                    </div>
+                    <div class="category-card">
+                        <span class="category-icon">🧠</span>
+                        <h3>个人成长</h3>
+                        <p>思维升级与自我管理</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Articles -->
+        <section class="section" style="background-color: #fff;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精选深度文章</h2>
+                    <p>由专业作者撰写的深度解析，值得反复品读</p>
+                </div>
+                <div class="featured-grid">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <span class="article-tag">深度</span>
+                            <img src="https://picsum.photos/seed/tech/600/400" alt="科技文章配图">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span>科技前沿</span>
+                                <span>5分钟前</span>
+                            </div>
+                            <h3 class="article-title"><a href="#">深度解析：人工智能如何重塑未来的教育模式</a></h3>
+                            <p class="article-excerpt">随着生成式AI的爆发，传统课堂正在经历前所未有的变革。本文将探讨技术带来的机遇与挑战...</p>
+                            <div class="article-footer">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/user1/50/50" class="author-avatar" alt="头像">
+                                    <span class="author-name">李思远</span>
+                                </div>
+                                <a href="#" class="read-more">阅读全文 →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-image">
+                            <span class="article-tag">历史</span>
+                            <img src="https://picsum.photos/seed/history/600/400" alt="历史文章配图">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span>人文历史</span>
+                                <span>2小时前</span>
+                            </div>
+                            <h3 class="article-title"><a href="#">古籍修复师：在时光长河中修补文明的碎片</a></h3>
+                            <p class="article-excerpt">一本古籍的修复，往往需要数月甚至数年。走进修复室，感受那些在纸张间流动的历史温度。</p>
+                            <div class="article-footer">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/user2/50/50" class="author-avatar" alt="头像">
+                                    <span class="author-name">王墨白</span>
+                                </div>
+                                <a href="#" class="read-more">阅读全文 →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-image">
+                            <span class="article-tag">心理</span>
+                            <img src="https://picsum.photos/seed/psych/600/400" alt="心理文章配图">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span>心理健康</span>
+                                <span>4小时前</span>
+                            </div>
+                            <h3 class="article-title"><a href="#">深夜独处：为什么我们需要一段"无用的"时光？</a></h3>
+                            <p class="article-excerpt">在这个倍速播放的时代，学会停下来，与自己对话，是最高级的自律。</p>
+                            <div class="article-footer">
+                                <div class="author-info">
+                                    <img src="https://picsum.photos/seed/user3/50/50" class="author-avatar" alt="头像">
+                                    <span class="author-name">林小雅</span>
+                                </div>
+                                <a href="#" class="read-more">阅读全文 →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Night Mode Feature -->
+        <section class="container">
+            <div class="night-mode-section">
+                <div class="night-content">
+                    <h2>护眼夜读模式</h2>
+                    <p>专为深夜阅读设计。我们提供高对比度、低蓝光的夜间阅读界面，保护视力，让知识陪伴你度过每一个不眠之夜。</p>
+                    <a href="#" class="night-btn">开启夜间模式</a>
+                </div>
+                <div class="night-img-placeholder">
+                    <img src="https://picsum.photos/seed/nightread/600/400" alt="夜读模式示意图">
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>订阅我们的周刊</h2>
+                <p>每周一发送，精选一周最值得阅读的深度好文，直接发送至您的邮箱。</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="请输入您的邮箱地址" required>
+                    <button type="submit">立即订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">授业到天亮<span>.</span></a>
+                    <p>致力于构建最纯粹的知识分享平台，让每一份求知的心都能得到回应。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">平台简介</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>内容服务</h4>
+                    <ul>
+                        <li><a href="#">投稿指南</a></li>
+                        <li><a href="#">专栏申请</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">用户协议</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 授业到天亮. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
