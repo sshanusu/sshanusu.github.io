@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="别说不可能 - 激励与成长社区。分享突破极限的故事、自我提升方法与克服挑战的实用指南，帮助您发现潜能，实现人生目标。">
+    <meta name="keywords" content="别说不可能, 激励, 自我提升, 目标达成, 突破极限, 成长">
+    <title>别说不可能 - 突破极限与自我成长指南</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --accent-color: #f59e0b;
+            --bg-light: #f8fafc;
+            --text-main: #1e293b;
+            --text-secondary: #64748b;
+            --white: #ffffff;
+            --border-radius: 12px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: var(--white);
+            padding: 100px 0;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 450px;
+            transform: rotate(-2deg);
+            transition: transform 0.3s;
+        }
+
+        .hero-card:hover {
+            transform: rotate(0deg);
+        }
+
+        .quote-box {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .quote-author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background: var(--bg-light);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(37, 99, 235, 0.1);
+            background: var(--white);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Stories Section */
+        .stories {
+            padding: 80px 0;
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .story-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s;
+        }
+
+        .story-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .story-image {
+            height: 200px;
+            background-color: #e2e8f0;
+            position: relative;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .story-content {
+            padding: 24px;
+        }
+
+        .story-tag {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .story-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .story-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .story-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .story-author img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        .story-author span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(to right, #1e293b, #334155);
+            color: var(--white);
+        }
+
+        .cta-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-container p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-question::before {
+            content: '+';
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .faq-item.active .faq-question::before {
+            content: '-';
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            padding-left: 20px;
+            border-left: 2px solid #e2e8f0;
+            padding-left: 20px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h4 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h5 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-text p {
+                margin: 0 auto 32px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                别说不可能<span>.</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">励志故事</a>
+                <a href="#">方法指南</a>
+                <a href="#">社区论坛</a>
+                <a href="#">关于我们</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">加入社区</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>突破思维的边界<br>发现无限的潜能</h1>
+                    <p>在这个充满挑战的世界里，"不可能"往往只是未知的开始。加入我们，获取实用的成长工具与真实的突破案例，帮助您将看似遥不可及的目标变为现实。</p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: flex-start;">
+                        <button class="btn btn-primary">开始成长之旅</button>
+                        <button class="btn btn-outline" style="border-color: rgba(255,255,255,0.5); color: white;">浏览成功案例</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>50k+</h3>
+                            <p>成长成员</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>10k+</h3>
+                            <p>真实案例</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>100+</h3>
+                            <p>实用工具</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="quote-box">
+                            “那些看似不可逾越的高山，往往是给自己设下的心理障碍。当你决定迈出第一步，路就已经在脚下。”
+                        </div>
+                        <div class="quote-author">
+                            <img src="https://picsum.photos/seed/author1/100/100" alt="Avatar">
+                            <span>林浩 · 连续创业者</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择我们</h2>
+                    <p>我们不仅提供理论，更注重实践与反馈，为您提供全方位的成长支持体系。</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>真实榜样社群</h3>
+                        <p>汇聚各行各业的突破者，分享他们如何从低谷走向巅峰的真实经历，为您树立可触及的标杆。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <h3>系统化方法论</h3>
+                        <p>提供经过验证的SMART目标设定、习惯养成与心理重塑工具，帮助您科学地拆解并达成目标。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3>正向反馈机制</h3>
+                        <p>通过每日打卡、进度追踪与社群互助，让您在坚持的道路上不再孤单，获得持续的成就感。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stories Section -->
+        <section class="stories">
+            <div class="container">
+                <div class="section-header">
+                    <h2>突破时刻：真实故事</h2>
+                    <p>每一个“不可能”的背后，都藏着一次勇敢的尝试。听听他们是如何改写命运的。</p>
+                </div>
+                <div class="stories-grid">
+                    <article class="story-card">
+                        <div class="story-image">
+                            <img src="https://picsum.photos/seed/sport/400/300" alt="马拉松">
+                            <span class="story-badge">运动</span>
+                        </div>
+                        <div class="story-content">
+                            <span class="story-tag">从零开始</span>
+                            <h3>42公里的坚持：一个普通上班族的重生</h3>
+                            <p>曾经连300米都跑不完的他，如何通过科学的训练计划，在半年内完成了人生第一次全程马拉松。</p>
+                            <div class="story-footer">
+                                <div class="story-author">
+                                    <img src="https://picsum.photos/seed/u1/50/50" alt="User">
+                                    <span>跑步爱好者</span>
+                                </div>
+                                <a href="#" class="read-more">阅读全文 →</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="story-card">
+                        <div class="story-image">
+                            <img src="https://picsum.photos/seed/code/400/300" alt="编程">
+                            <span class="story-badge">技能</span>
+                        </div>
+                        <div class="story-content">
+                            <span class="story-tag">零基础转行</span>
+                            <h3>30岁转码：用一年时间敲开科技大门</h3>
+                            <p>面对年龄焦虑与行业寒冬，他如何利用业余时间自学编程，最终获得大厂Offer的逆袭之路。</p>
+                            <div class="story-footer">
+                                <div class="story-author">
+                                    <img src="https://picsum.photos/seed/u2/50/50" alt="User">
+                                    <span>程序猿老张</span>
+                                </div>
+                                <a href="#" class="read-more">阅读全文 →</a>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="story-card">
+                        <div class="story-image">
+                            <img src="https://picsum.photos/seed/art/400/300" alt="创业">
+                            <span class="story-badge">创业</span>
+                        </div>
+                        <div class="story-content">
+                            <span class="story-tag">商业思维</span>
+                            <h3>负债累累后的二次创业：相信复利的力量</h3>
+                            <p>从破产边缘到打造百万营收工作室，他总结出的这套“最小可行性产品”实战经验。</p>
+                            <div class="story-footer">
+                                <div class="story-author">
+                                    <img src="https://picsum.photos/seed/u3/50/50" alt="User">
+                                    <span>产品经理Mike</span>
+                                </div>
+                                <a href="#" class="read-more">阅读全文 →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="btn btn-outline">查看更多故事</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container cta-container">
+                <h2>别让“不可能”成为你的终点</h2>
+                <p>现在加入社区，获取第一份《30天目标突破行动指南》，开启您的改变之旅。</p>
+                <button class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">立即免费领取指南</button>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题</h2>
+                    <p>关于成长与突破，您可能关心这些问题。</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">我没有任何基础，真的能做到吗？</div>
+                        <div class="faq-answer">
+                            绝大多数成功案例都源于零基础。我们提供从心态调整到具体执行的完整路径，只要您愿意开始，我们就陪您走完每一步。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">加入社区需要多长时间？</div>
+                        <div class="faq-answer">
+                            您可以随时加入。我们的核心内容是结构化的，您可以按自己的节奏学习。建议每天投入30分钟，坚持一个月即可看到明显变化。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如果遇到瓶颈怎么办？</div>
+                        <div class="faq-answer">
+                            瓶颈期是成长的关键转折点。在社区中，您可以找到导师和同伴进行交流，我们会提供专门的“突破瓶颈”工作坊。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">这个服务是收费的吗？</div>
+                        <div class="faq-answer">
+                            我们提供基础的公开内容，同时也有高级会员计划提供一对一指导。您可以先从免费内容体验，满意后再做决定。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h4>别说不可能</h4>
+                    <p>致力于帮助全球用户突破思维限制，通过科学的方法与坚定的信念，实现个人价值的最大化。</p>
+                </div>
+                <div class="footer-col">
+                    <h5>探索</h5>
+                    <ul>
+                        <li><a href="#">最新文章</a></li>
+                        <li><a href="#">热门话题</a></li>
+                        <li><a href="#">成功案例</a></li>
+                        <li><a href="#">资源下载</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>支持</h5>
+                    <ul>
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>关注我们</h5>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博账号</a></li>
+                        <li><a href="#">知乎专栏</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 别说不可能. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // FAQ Toggle Logic
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const wasActive = item.classList.contains('active');
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                // If it wasn't active before, open it now
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
