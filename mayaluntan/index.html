@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="玛雅论坛主页 - 提供综合数码科技讨论、游戏攻略分享、生活经验交流及网络资源互助的活跃社区平台。">
+    <meta name="keywords" content="玛雅论坛主页,玛雅论坛,数码讨论,游戏攻略,网络资源,社区">
+    <title>玛雅论坛主页-数码科技与生活互助社区</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #004c99;
+            --accent-color: #ff9900;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --container-width: 1200px;
+            --header-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            height: var(--header-height);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-links a.active, .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .btn {
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-main);
+        }
+
+        .btn-ghost:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .hero-text p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        .hero-search {
+            display: flex;
+            gap: var(--spacing-sm);
+            background: rgba(255,255,255,0.2);
+            padding: 6px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-search input {
+            flex: 1;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            outline: none;
+            background: white;
+        }
+
+        .hero-search button {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 240px 1fr 280px;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Sidebar Left */
+        .sidebar-left .category-list li {
+            margin-bottom: 4px;
+        }
+
+        .category-list a {
+            display: block;
+            padding: 10px 12px;
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .category-list a:hover, .category-list a.active {
+            background-color: rgba(0, 102, 204, 0.1);
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .category-icon {
+            margin-right: 8px;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* Content Area */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .topic-list .topic-item {
+            background: var(--card-bg);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            gap: var(--spacing-md);
+            transition: box-shadow 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .topic-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-color: #eee;
+        }
+
+        .topic-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .topic-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .topic-info {
+            flex: 1;
+        }
+
+        .topic-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .topic-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .topic-meta {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .topic-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .topic-stats {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 60px;
+            text-align: center;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            padding: 8px;
+        }
+
+        .stat-num {
+            font-weight: bold;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Sidebar Right */
+        .sidebar-right {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .widget {
+            background: var(--card-bg);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .widget-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: var(--spacing-md);
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .rank-num {
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+            color: #666;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background-color: #ff4d4f; color: white; }
+        .rank-list li:nth-child(2) .rank-num { background-color: #ff7a45; color: white; }
+        .rank-list li:nth-child(3) .rank-num { background-color: #ffa940; color: white; }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #f0f2f5;
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2b2b;
+            color: #b0b0b0;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #3d3d3d;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 200px 1fr;
+            }
+            .sidebar-right {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+                gap: 10px;
+            }
+            .nav-links {
+                display: none; /* Mobile menu placeholder */
+            }
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .hero-search {
+                width: 100%;
+            }
+            .hero-search input {
+                width: 100%;
+            }
+            .topic-item {
+                flex-direction: column;
+            }
+            .topic-stats {
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 10px;
+                background: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>玛雅论坛</span>
+        </a>
+        <nav class="nav-links">
+            <a href="#" class="active">首页</a>
+            <a href="#">数码科技</a>
+            <a href="#">游戏攻略</a>
+            <a href="#">影视娱乐</a>
+            <a href="#">生活互助</a>
+            <a href="#">二手交易</a>
+        </nav>
+        <div class="user-actions">
+            <a href="#" class="btn btn-ghost">登录</a>
+            <a href="#" class="btn btn-primary">注册</a>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-content">
+        <div class="hero-text">
+            <h1>汇聚思想，探索未知</h1>
+            <p>加入玛雅论坛，与数万网友共同探讨数码前沿、分享游戏心得、交流生活经验。</p>
+        </div>
+        <div class="hero-search">
+            <input type="text" placeholder="搜索帖子、用户或话题...">
+            <button>搜索</button>
+        </div>
+    </div>
+</section>
+
+<main class="container main-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar-left">
+        <ul class="category-list">
+            <li><a href="#" class="active"><span class="category-icon">💻</span>数码科技</a></li>
+            <li><a href="#"><span class="category-icon">🎮</span>游戏攻略</a></li>
+            <li><a href="#"><span class="category-icon">🎬</span>影视娱乐</a></li>
+            <li><a href="#"><span class="category-icon">📚</span>小说阅读</a></li>
+            <li><a href="#"><span class="category-icon">📷</span>摄影交流</a></li>
+            <li><a href="#"><span class="category-icon">🏠</span>生活互助</a></li>
+            <li><a href="#"><span class="category-icon">💰</span>二手交易</a></li>
+            <li><a href="#"><span class="category-icon">📢</span>版块公告</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <section class="content-area">
+        <div class="section-header">
+            <h2 class="section-title">热门推荐</h2>
+            <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看更多 &rarr;</a>
+        </div>
+
+        <div class="topic-list">
+            <article class="topic-item">
+                <div class="topic-avatar">
+                    <img src="https://picsum.photos/seed/user1/100/100" alt="用户头像">
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title"><a href="#">[评测] 深度体验最新一代旗舰手机，影像系统究竟提升了多少？</a></h3>
+                    <div class="topic-meta">
+                        <span>作者：科技先锋</span>
+                        <span>分类：数码科技</span>
+                        <span>2023-10-24</span>
+                    </div>
+                </div>
+                <div class="topic-stats">
+                    <span class="stat-num">1.2k</span>
+                    <span class="stat-label">回复</span>
+                </div>
+            </article>
+
+            <article class="topic-item">
+                <div class="topic-avatar">
+                    <img src="https://picsum.photos/seed/user2/100/100" alt="用户头像">
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title"><a href="#">求助：新买的显卡驱动总是崩溃，有没有解决方法？</a></h3>
+                    <div class="topic-meta">
+                        <span>作者：游戏玩家007</span>
+                        <span>分类：数码科技</span>
+                        <span>2023-10-24</span>
+                    </div>
+                </div>
+                <div class="topic-stats">
+                    <span class="stat-num">86</span>
+                    <span class="stat-label">回复</span>
+                </div>
+            </article>
+
+            <article class="topic-item">
+                <div class="topic-avatar">
+                    <img src="https://picsum.photos/seed/user3/100/100" alt="用户头像">
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title"><a href="#">【攻略】黑神话：悟空全BOSS战技巧与资源获取指南</a></h3>
+                    <div class="topic-meta">
+                        <span>作者：硬核玩家</span>
+                        <span>分类：游戏攻略</span>
+                        <span>2023-10-23</span>
+                    </div>
+                </div>
+                <div class="topic-stats">
+                    <span class="stat-num">3.5k</span>
+                    <span class="stat-label">回复</span>
+                </div>
+            </article>
+
+            <article class="topic-item">
+                <div class="topic-avatar">
+                    <img src="https://picsum.photos/seed/user4/100/100" alt="用户头像">
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title"><a href="#">周末去哪玩？盘点国内最适合情侣打卡的10个小众景点</a></h3>
+                    <div class="topic-meta">
+                        <span>作者：旅行家</span>
+                        <span>分类：生活互助</span>
+                        <span>2023-10-23</span>
+                    </div>
+                </div>
+                <div class="topic-stats">
+                    <span class="stat-num">210</span>
+                    <span class="stat-label">回复</span>
+                </div>
+            </article>
+            
+            <article class="topic-item">
+                <div class="topic-avatar">
+                    <img src="https://picsum.photos/seed/user5/100/100" alt="用户头像">
+                </div>
+                <div class="topic-info">
+                    <h3 class="topic-title"><a href="#">分享一套自己整理的职场PPT模板，免费下载使用</a></h3>
+                    <div class="topic-meta">
+                        <span>作者：Office达人</span>
+                        <span>分类：资源分享</span>
+                        <span>2023-10-22</span>
+                    </div>
+                </div>
+                <div class="topic-stats">
+                    <span class="stat-num">542</span>
+                    <span class="stat-label">回复</span>
+                </div>
+            </article>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="btn btn-ghost">加载更多内容</button>
+        </div>
+    </section>
+
+    <!-- Right Sidebar -->
+    <aside class="sidebar-right">
+        <div class="widget">
+            <h3 class="widget-title">排行榜</h3>
+            <ul class="rank-list">
+                <li><span class="rank-num">1</span><a href="#">如何评价最近的显卡价格走势？</a></li>
+                <li><span class="rank-num">2</span><a href="#">2024年值得入手的入门级微单推荐</a></li>
+                <li><span class="rank-num">3</span><a href="#">有没有不剧透的剧情分析贴？</a></li>
+                <li><span class="rank-num">4</span><a href="#">新手如何快速上手Python编程</a></li>
+                <li><span class="rank-num">5</span><a href="#">分享我的复古胶片摄影作品</a></li>
+                <li><span class="rank-num">6</span><a href="#">寻找同城的小伙伴一起打游戏</a></li>
+            </ul>
+        </div>
+
+        <div class="widget">
+            <h3 class="widget-title">热门标签</h3>
+            <div class="tag-cloud">
+                <a href="#" class="tag">#数码评测</a>
+                <a href="#" class="tag">#游戏攻略</a>
+                <a href="#" class="tag">#生活小妙招</a>
+                <a href="#" class="tag">#资源分享</a>
+                <a href="#" class="tag">#情感咨询</a>
+                <a href="#" class="tag">#摄影技巧</a>
+                <a href="#" class="tag">#数码好物</a>
+                <a href="#" class="tag">#影视讨论</a>
+            </div>
+        </div>
+
+        <div class="widget">
+            <h3 class="widget-title">快速链接</h3>
+            <ul class="category-list" style="font-size: 0.9rem;">
+                <li><a href="#">论坛版规</a></li>
+                <li><a href="#">用户成长体系</a></li>
+                <li><a href="#">广告投放</a></li>
+                <li><a href="#">联系管理员</a></li>
+            </ul>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于玛雅</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6; color: #999;">
+                    玛雅论坛致力于打造一个开放、友好、高质量的中文网络交流社区。我们关注科技发展，分享生活点滴，连接每一位热爱生活的用户。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>热门版块</h4>
+                <ul>
+                    <li><a href="#">数码科技</a></li>
+                    <li><a href="#">游戏攻略</a></li>
+                    <li><a href="#">影视娱乐</a></li>
+                    <li><a href="#">生活互助</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">使用指南</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系方式</h4>
+                <ul>
+                    <li>邮箱：support@mayabbs.com</li>
+                    <li>客服时间：9:00 - 22:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 玛雅论坛 版权所有 | 保留所有权利
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                      </html>
