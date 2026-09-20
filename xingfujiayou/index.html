@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性福加油站 - 健康性教育、两性关系与亲密指南</title>
+    <meta name="description" content="性福加油站提供权威、科学的性健康知识与两性关系指导。涵盖性健康科普、两性沟通技巧、情感咨询及生活技巧，助您建立健康、和谐、自信的亲密关系。">
+    <meta name="keywords" content="性福加油站, 性健康, 两性关系, 性教育, 情感咨询, 亲密关系, 健康科普">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d63384;
+            --primary-hover: #b02a6b;
+            --secondary-color: #6610f2;
+            --accent-color: #ff4081;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-light: #6c757d;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(214, 51, 132, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff0f6 0%, #e6e6fa 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 90%;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: rgba(214, 51, 132, 0.1);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background: var(--card-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background: var(--bg-color);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* Content Grid */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .main-column h3 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-img {
+            height: 200px;
+            width: 100%;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .article-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-body {
+            padding: 25px;
+        }
+
+        .article-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .article-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 15px;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .category-list li {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        .category-list a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .count {
+            background: #f0f0f0;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--card-bg);
+            padding: 60px 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-answer {
+            color: var(--text-light);
+            font-size: 14px;
+            padding-left: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .footer-brand p {
+            color: #aaa;
+            font-size: 14px;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                position: static;
+                order: -1;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>❤</span> 性福加油站
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">健康科普</a></li>
+                    <li><a href="#">两性关系</a></li>
+                    <li><a href="#">技巧指南</a></li>
+                    <li><a href="#">情感咨询</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">注册</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <div class="hero-tags">
+                        <span class="tag">科学科普</span>
+                        <span class="tag">情感疏导</span>
+                        <span class="tag">实用指南</span>
+                    </div>
+                    <h1>探索身心和谐，<br><span>解锁亲密关系</span>的奥秘</h1>
+                    <p>性福加油站致力于提供专业、客观、不羞耻的性健康知识与两性沟通技巧。无论你是想改善夫妻关系，还是单纯想了解生理健康，这里都有你需要的答案。</p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: inherit;">
+                        <a href="#" class="btn btn-primary">开始探索</a>
+                        <a href="#" class="btn btn-outline">了解更多</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Using a placeholder image representing harmony/health -->
+                    <img src="https://picsum.photos/seed/lovehealth/600/400" alt="健康和谐的亲密关系示意">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择我们？</h2>
+                    <p>打破禁忌，拥抱真实的自我</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🧬</div>
+                        <h3>权威科普</h3>
+                        <p>内容均由医学专家审核，拒绝谣言与伪科学，为您提供最准确的生理健康知识。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🗣️</div>
+                        <h3>沟通技巧</h3>
+                        <p>提供实用的两性沟通指南，帮助您打破沉默，与伴侣坦诚交流需求与感受。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>安全指南</h3>
+                        <p>全方位的性健康保护建议，包括避孕措施、性病预防及安全性行为规范。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧘</div>
+                        <h3>身心调适</h3>
+                        <p>关注心理健康与压力管理，帮助您缓解焦虑，建立自信、健康的自我认知。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <section class="content-section">
+            <div class="container content-grid">
+                <div class="main-column">
+                    <h3>最新文章 <a href="#" class="read-more" style="font-size: 14px;">查看更多 &rarr;</a></h3>
+                    
+                    <article class="article-card">
+                        <div class="article-img">
+                            <img src="https://picsum.photos/seed/sexhealth1/800/400" alt="女性性健康科普">
+                        </div>
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span>科普</span>
+                                <span>•</span>
+                                <span>5分钟阅读</span>
+                            </div>
+                            <h4 class="article-title">了解女性生理周期与性健康：从生理到心理的全面解读</h4>
+                            <p class="article-excerpt">女性的生理周期不仅仅是生殖健康的表现，更与情绪、能量及性欲密切相关。本文将深入探讨周期不同阶段的身体变化及对应的亲密关系建议...</p>
+                            <div class="article-footer">
+                                <span>作者：李医生</span>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-img">
+                            <img src="https://picsum.photos/seed/relationship2/800/400" alt="两性沟通">
+                        </div>
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span>关系</span>
+                                <span>•</span>
+                                <span>8分钟阅读</span>
+                            </div>
+                            <h4 class="article-title">打破沉默：如何与伴侣进行一场关于“性”的深度对话</h4>
+                            <p class="article-excerpt">很多夫妻因为羞涩而回避性话题，导致关系疏远。学会使用“我”字句表达感受，是建立坦诚沟通的第一步。这里有三个实用的沟通技巧...</p>
+                            <div class="article-footer">
+                                <span>作者：情感导师</span>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-img">
+                            <img src="https://picsum.photos/seed/technique3/800/400" alt="亲密技巧">
+                        </div>
+                        <div class="article-body">
+                            <div class="article-meta">
+                                <span>技巧</span>
+                                <span>•</span>
+                                <span>6分钟阅读</span>
+                            </div>
+                            <h4 class="article-title">探索前戏的魔力：延长亲密时间与提升愉悦感的科学方法</h4>
+                            <p class="article-excerpt">前戏不仅仅是热身，更是整个愉悦过程的核心。通过感官刺激与心理调适，可以有效延长兴奋期，让双方获得更高质量的体验。</p>
+                            <div class="article-footer">
+                                <span>作者：健康专家</span>
+                                <a href="#" class="read-more">阅读全文</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <aside>
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">热门分类</h4>
+                        <ul class="category-list">
+                            <li><a href="#">男性健康 <span class="count">128</span></a></li>
+                            <li><a href="#">女性健康 <span class="count">95</span></a></li>
+                            <li><a href="#">两性心理 <span class="count">210</span></a></li>
+                            <li><a href="#">避孕与生殖 <span class="count">45</span></a></li>
+                            <li><a href="#">性传播疾病预防 <span class="count">33</span></a></li>
+                            <li><a href="#">情趣与玩具 <span class="count">67</span></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">本周推荐</h4>
+                        <div style="margin-bottom: 15px;">
+                            <img src="https://picsum.photos/seed/recommend1/200/120" alt="推荐内容" style="width:100%; border-radius:8px; margin-bottom:10px;">
+                            <a href="#" style="font-weight:600; font-size:14px; display:block;">为什么你总是感到性冷淡？</a>
+                            <span style="font-size:12px; color:#999;">情感咨询</span>
+                        </div>
+                        <div>
+                            <img src="https://picsum.photos/seed/recommend2/200/120" alt="推荐内容" style="width:100%; border-radius:8px; margin-bottom:10px;">
+                            <a href="#" style="font-weight:600; font-size:14px; display:block;">如何正确使用安全套？</a>
+                            <span style="font-size:12px; color:#999;">科普</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                    <p>您关心的健康与关系问题，这里都有答案</p>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">❓ 性生活频率应该是多少？</div>
+                        <div class="faq-answer">性生活频率没有绝对的标准，关键在于双方是否感到满足和舒适。一般来说，年龄较轻、身体健康的人群频率可能较高，而随着年龄增长频率会自然下降。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">❓ 女性在性生活中感到疼痛怎么办？</div>
+                        <div class="faq-answer">性交疼痛可能由多种原因引起，包括润滑不足、心理紧张或病理因素。建议及时就医检查，同时尝试增加前戏时间、使用润滑剂并保持良好的沟通。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">❓ 如何判断伴侣是否达到了高潮？</div>
+                        <div class="faq-answer">高潮的表现因人而异，有的表现为肌肉痉挛、呼吸急促，有的则可能只是面部潮红或发出声音。最好的判断方式是直接询问伴侣的感受，而不是猜测。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">❓ 备孕期需要注意哪些性生活细节？</div>
+                        <div class="faq-answer">备孕期建议在排卵期（通常为下次月经前14天左右）增加性生活频率。性生活后建议将臀部抬高一段时间，有助于精子向子宫游动。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>性福加油站</h2>
+                    <p>我们致力于消除性健康知识的盲区，帮助每一个人建立自信、健康、愉悦的亲密关系。您的隐私是我们最宝贵的财富。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">专家团队</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>内容分类</h4>
+                    <ul>
+                        <li><a href="#">男性健康</a></li>
+                        <li><a href="#">女性健康</a></li>
+                        <li><a href="#">两性心理</a></li>
+                        <li><a href="#">青少年教育</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">在线咨询</a></li>
+                        <li><a href="#">投稿合作</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 性福加油站 版权所有. 本站内容仅供科普参考，不构成医疗建议。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                              </html>
