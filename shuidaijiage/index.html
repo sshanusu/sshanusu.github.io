@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="睡袋价格查询与选购指南，提供各类户外睡袋、露营睡袋的价格对比、材质分析及购买建议，帮助您找到性价比最高的睡袋产品。">
+    <meta name="keywords" content="睡袋价格,户外睡袋,露营装备,睡袋选购指南,充绒量">
+    <title>睡袋价格-户外露营装备选购与价格对比指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #27ae60;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-box {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 50px;
+            display: inline-flex;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            border: none;
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-box button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: #219150;
+        }
+
+        /* Price Filter Section */
+        .filter-section {
+            background: var(--card-bg);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+
+        .filter-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: transparent;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .price-range {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .price-range input {
+            width: 100px;
+            padding: 0.4rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        /* Product Grid */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+            color: var(--primary-color);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-tag {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .product-specs {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .product-specs span::before {
+            content: "•";
+            margin-right: 0.5rem;
+        }
+
+        .product-specs span:first-child::before {
+            display: none;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1rem;
+        }
+
+        .price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .price small {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .buy-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .buy-btn:hover {
+            background-color: #219150;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: white;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .guide-card {
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: box-shadow 0.2s;
+        }
+
+        .guide-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .guide-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .guide-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .guide-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 1rem;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            background: #fafafa;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.2rem;
+            max-height: 500px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .filter-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            🏕️ <span>睡袋价格</span>指南
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">价格列表</a></li>
+                <li><a href="#guide">选购指南</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>户外睡袋价格查询与选购指南</h1>
+        <p>无论是露营、徒步还是登山，了解睡袋价格与性能的平衡点，是获得舒适睡眠的关键。我们为您提供最新的市场行情与专业建议。</p>
+        <form class="search-box" onsubmit="event.preventDefault(); alert('感谢您的搜索！本页面主要展示睡袋价格对比信息。');">
+            <input type="text" placeholder="搜索品牌或型号，如：Marmot, 泰坦...">
+            <button type="submit">搜索</button>
+        </form>
+    </div>
+</section>
+
+<div class="container">
+    <div class="filter-section">
+        <div class="filter-content">
+            <div class="filter-group">
+                <button class="filter-btn active">全部价格</button>
+                <button class="filter-btn">¥200 - ¥500</button>
+                <button class="filter-btn">¥500 - ¥1000</button>
+                <button class="filter-btn">¥1000 - ¥3000</button>
+                <button class="filter-btn">¥3000+</button>
+            </div>
+            <div class="price-range">
+                <span>价格区间：</span>
+                <input type="number" placeholder="最低价">
+                <span>-</span>
+                <input type="number" placeholder="最高价">
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <h2 class="section-title">热门睡袋价格参考</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <article class="product-card">
+                <img src="https://picsum.photos/seed/sleepbag1/400/300" alt="户外露营睡袋" class="product-img">
+                <div class="product-info">
+                    <span class="product-tag">入门级</span>
+                    <h3 class="product-title">舒适型三季露营睡袋</h3>
+                    <p class="product-desc">适合春秋季露营，采用90%白鸭绒填充，保暖性良好，轻便易携带。</p>
+                    <div class="product-specs">
+                        <span>充绒量：200g</span>
+                        <span>温标：5℃</span>
+                        <span>重量：1.2kg</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">¥399 <small>起</small></div>
+                        <a href="#" class="buy-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 2 -->
+            <article class="product-card">
+                <img src="https://picsum.photos/seed/sleepbag2/400/300" alt="高山徒步睡袋" class="product-img">
+                <div class="product-info">
+                    <span class="product-tag">进阶级</span>
+                    <h3 class="product-title">高山徒步羽绒睡袋</h3>
+                    <p class="product-desc">800蓬睡棉，充绒量400g，适合冬季高山徒步，防水防风面料。</p>
+                    <div class="product-specs">
+                        <span>充绒量：400g</span>
+                        <span>温标：-10℃</span>
+                        <span>重量：1.5kg</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">¥899</div>
+                        <a href="#" class="buy-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 3 -->
+            <article class="product-card">
+                <img src="https://picsum.photos/seed/sleepbag3/400/300" alt="轻量化睡袋" class="product-img">
+                <div class="product-info">
+                    <span class="product-tag">专业级</span>
+                    <h3 class="product-title">极限轻量睡袋</h3>
+                    <p class="product-desc">采用7D超轻面料与700蓬鹅绒，极致压缩，适合超长距离徒步。</p>
+                    <div class="product-specs">
+                        <span>充绒量：250g</span>
+                        <span>温标：0℃</span>
+                        <span>重量：0.9kg</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">¥1,299</div>
+                        <a href="#" class="buy-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 4 -->
+            <article class="product-card">
+                <img src="https://picsum.photos/seed/sleepbag4/400/300" alt="儿童睡袋" class="product-img">
+                <div class="product-info">
+                    <span class="product-tag">亲子</span>
+                    <h3 class="product-title">儿童舒适睡袋</h3>
+                    <p class="product-desc">安全拉链设计，柔软亲肤，适合亲子露营，保持孩子体温。</p>
+                    <div class="product-specs">
+                        <span>充绒量：150g</span>
+                        <span>温标：10℃</span>
+                        <span>尺寸：1.2m</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">¥159</div>
+                        <a href="#" class="buy-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+             <!-- Product 5 -->
+             <article class="product-card">
+                <img src="https://picsum.photos/seed/sleepbag5/400/300" alt="帐篷睡袋" class="product-img">
+                <div class="product-info">
+                    <span class="product-tag">两季</span>
+                    <h3 class="product-title">四季通用帐篷睡袋</h3>
+                    <p class="product-desc">加长设计，可双脚分开，适合在帐篷内穿着睡袋阅读或休息。</p>
+                    <div class="product-specs">
+                        <span>充绒量：300g</span>
+                        <span>温标：0℃</span>
+                        <span>尺寸：2.1m</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">¥459</div>
+                        <a href="#" class="buy-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+
+             <!-- Product 6 -->
+             <article class="product-card">
+                <img src="https://picsum.photos/seed/sleepbag6/400/300" alt="天幕睡袋" class="product-img">
+                <div class="product-info">
+                    <span class="product-tag">天幕专用</span>
+                    <h3 class="product-title">天幕吊床睡袋</h3>
+                    <p class="product-desc">专为吊床使用设计，背部加厚保暖，适合夏季避暑露营。</p>
+                    <div class="product-specs">
+                        <span>充绒量：180g</span>
+                        <span>温标：15℃</span>
+                        <span>材质：棉麻</span>
+                    </div>
+                    <div class="product-footer">
+                        <div class="price">¥299</div>
+                        <a href="#" class="buy-btn">查看详情</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <section id="guide" class="guide-section">
+            <h2 class="section-title">选购睡袋的关键参数</h2>
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <div class="guide-icon">🌡️</div>
+                    <h3>温标选择</h3>
+                    <p>睡袋通常标注极限温标和舒适温标。国内露营建议选择舒适温标在0℃至-5℃的睡袋。如果前往高海拔或严寒地区，需选择温标更低的专业款。</p>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon">🪶</div>
+                    <h3>填充物与蓬松度</h3>
+                    <p>羽绒睡袋保暖性优于棉睡袋，且重量轻、压缩性好，但怕潮。选择时关注蓬松度（如600+为良好），充绒量越高保暖越好，但也更重。</p>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon">📏</div>
+                    <h3>尺寸与形状</h3>
+                    <p>长方形睡袋活动空间大但保暖性稍差；木乃伊形（蛋形）剪裁贴合身体，锁温效果好但活动受限。身高超过1.85m建议购买加大版。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <h2 class="section-title">睡袋价格常见问题</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">为什么睡袋的价格差异这么大？</div>
+                <div class="faq-answer">
+                    价格差异主要取决于填充材料（鹅绒vs鸭绒）、蓬松度、面料防水透气性、品牌溢价以及制作工艺。高品质羽绒睡袋通常价格在千元以上，而普通棉质睡袋可能在百元以内。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">新手露营应该买多少钱的睡袋？</div>
+                <div class="faq-answer">
+                    如果是春秋季在公园或营地露营，预算在300-500元的入门级三季睡袋即可满足需求。如果是夏季夜温较高，甚至不需要充绒睡袋，直接购买睡袋套即可。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何判断睡袋的保暖性能？</div>
+                <div class="faq-answer">
+                    主要看充绒量和蓬松度。一般来说，300g-400g的充绒量适合5℃-10℃环境，500g以上适合-5℃左右。蓬松度越高，同等重量下保暖效果越好。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">羽绒睡袋和棉睡袋哪个好？</div>
+                <div class="faq-answer">
+                    羽绒睡袋轻便、保暖、压缩性好，但怕潮湿；棉睡袋怕潮湿且重，但透气性好且价格相对便宜。如果经常在潮湿环境使用，棉睡袋可能更实用。
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">联系方式</a>
+            <a href="#">免责声明</a>
+            <a href="#">隐私政策</a>
+        </div>
+        <p class="copyright">© 2023 睡袋价格指南. 保留所有权利. 本站价格仅供参考，具体请以电商平台实时报价为准。</p>
+    </div>
+</footer>
+
+<script>
+    // FAQ 交互逻辑
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', event => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+
+    // 简单的筛选按钮交互
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
