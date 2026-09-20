@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="jlzz大全 - 专业的急救知识资源导航与查询平台。提供心肺复苏、止血包扎、海姆立克急救法等常用急救技能的图文详解、视频教程及急救工具下载，帮助您在紧急时刻掌握正确的自救互救方法。">
+    <meta name="keywords" content="jlzz大全,急救知识大全,心肺复苏,海姆立克急救法,止血包扎,急救指南">
+    <title>jlzz大全 - 常用急救知识与技能查询指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --primary-hover: #d62839;
+            --secondary-color: #f1faee;
+            --text-dark: #1d3557;
+            --text-gray: #457b9d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: currentColor;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #a8dadc 100%);
+            color: var(--white);
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Quick Access Grid */
+        .quick-access {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--primary-color);
+        }
+
+        .card h3 {
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* Section Styling */
+        .section-header {
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Guide Layout */
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guide-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .guide-list-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .guide-list-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-list-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .guide-list-item p {
+            color: #555;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .sidebar {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .sidebar h4 {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .checklist li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .checklist li::before {
+            content: "✔";
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-top: 2px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--white);
+            padding: 3rem 1rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: #ccc;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .disclaimer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .guide-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,19H5V5H19V19M11,17H13V11H11V17M11,9H13V7H11V9Z" />
+                </svg>
+                jlzz大全
+            </a>
+            <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#core">核心急救</a></li>
+                    <li><a href="#trauma">创伤处理</a></li>
+                    <li><a href="#common">常见急症</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>守护生命，从掌握急救开始</h1>
+        <p>jlzz大全为您提供系统、权威的急救知识资源。无论是日常意外还是突发急症，在这里都能找到科学的应对方案与操作指南。</p>
+        <div class="hero-buttons">
+            <a href="#core" class="btn btn-primary">开始学习</a>
+            <a href="#faq" class="btn btn-outline">查看指南</a>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- 核心急救模块 -->
+        <section id="core" class="quick-access">
+            <article class="card">
+                <h3>
+                    <svg style="width:24px;height:24px;fill:var(--primary-color)" viewBox="0 0 24 24"><path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" /></svg>
+                    心肺复苏 (CPR)
+                </h3>
+                <p>针对心脏骤停患者的黄金急救手段，通过胸外按压和人工呼吸维持生命体征。</p>
+                <a href="#cpr-guide" class="card-link">查看操作步骤 →</a>
+            </article>
+
+            <article class="card">
+                <h3>
+                    <svg style="width:24px;height:24px;fill:var(--primary-color)" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12C20,14.21 19.1,16.21 17.66,17.66L16.24,16.24C17.33,15.15 18,13.63 18,12A6,6 0 0,0 12,6C10.37,6 8.85,6.67 7.76,7.76L6.34,6.34C7.79,4.9 9.79,4 12,4M12,14A2,2 0 0,1 14,12A2,2 0 0,1 12,10A2,2 0 0,1 10,12A2,2 0 0,1 12,14M12,20C9.79,20 7.79,19.1 6.34,17.66L7.76,16.24C8.85,17.33 10.37,18 12,18C13.63,18 15.15,17.33 16.24,16.24L17.66,17.66C16.21,19.1 14.21,20 12,20Z" /></svg>
+                    海姆立克急救法
+                </h3>
+                <p>针对气道异物梗阻的紧急自救与互救技术，能有效解除窒息，挽救生命。</p>
+                <a href="#heimlich-guide" class="card-link">查看操作步骤 →</a>
+            </article>
+
+            <article class="card">
+                <h3>
+                    <svg style="width:24px;height:24px;fill:var(--primary-color)" viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,11.95L7.5,7.45L8.91,6.04L12,9.13L15.09,6.04L16.5,7.45L12,11.95Z" /></svg>
+                    止血与包扎
+                </h3>
+                <p>外伤处理的基础技能，包括直接压迫止血、加压包扎及三角巾固定方法。</p>
+                <a href="#wound-guide" class="card-link">查看操作步骤 →</a>
+            </article>
+        </section>
+
+        <!-- 详细指南区域 -->
+        <div class="guide-layout">
+            <div class="guide-content">
+                <div class="section-header">
+                    <h2>核心急救技能详解</h2>
+                    <p>详细图文解说，帮助您在关键时刻做出正确判断。</p>
+                </div>
+
+                <!-- CPR Section -->
+                <div id="cpr-guide" class="guide-list-item">
+                    <h4>1. 心肺复苏 (CPR) 全流程</h4>
+                    <p>心肺复苏是抢救心脏骤停患者的关键。首先确认现场环境安全，判断患者意识与呼吸。若无反应且无呼吸，立即呼救并开始胸外按压。</p>
+                    <p><strong>操作要点：</strong>双手交叠，掌根发力，双臂伸直，垂直按压胸骨中下段。按压频率为100-120次/分钟，深度5-6厘米。每30次按压后进行2次人工呼吸（如未接受过培训可仅做连续按压）。持续进行直到专业医护人员到达或患者恢复自主呼吸。</p>
+                </div>
+
+                <!-- Heimlich Section -->
+                <div id="heimlich-guide" class="guide-list-item">
+                    <h4>2. 海姆立克急救法</h4>
+                    <p>当患者无法说话、呼吸困难，且面部发紫，应怀疑气道异物梗阻。自救时，一手握拳，拇指侧顶住上腹部（肚脐上方两横指，剑突下方），另一手包住拳头，快速向内向上冲击。</p>
+                    <p><strong>互救要点：</strong>施救者站在患者身后，双臂环绕其腰，一手握拳抵住上腹部，另一手包住拳头，向内向上用力冲击。对于婴儿，需用两指或手掌根部进行冲击，力度要轻柔。</p>
+                </div>
+
+                <!-- Wound Section -->
+                <div id="wound-guide" class="guide-list-item">
+                    <h4>3. 外伤止血与包扎</h4>
+                    <p>对于活动性出血，首选直接压迫止血。用干净的纱布或布料覆盖伤口，用力按压5-10分钟。若出血不止，可抬高受伤部位。</p>
+                    <p><strong>包扎技巧：</strong>使用无菌敷料或干净的布料包扎，松紧适度。头部伤口常用三角巾包扎，四肢出血可加压包扎后使用止血带（需记录时间并每隔一小时放松一次，防止肢体坏死）。</p>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <h4>急救准备清单</h4>
+                <ul class="checklist">
+                    <li>建立家庭急救箱</li>
+                    <li>包含消毒用品、纱布、绷带</li>
+                    <li>准备退烧药与常备药</li>
+                    <li>记录常用急救电话</li>
+                    <li>定期检查药品有效期</li>
+                    <li>学习急救技能证书</li>
+                </ul>
+                <div style="margin-top: 2rem; background: #fff3cd; padding: 1rem; border-radius: 4px; font-size: 0.9rem; color: #856404;">
+                    <strong>温馨提示：</strong>本指南仅供参考，不能替代专业医疗建议。严重伤害请立即拨打120。
+                </div>
+            </aside>
+        </div>
+
+        <!-- 常见急症分类 -->
+        <section id="trauma" style="margin-bottom: 3rem;">
+            <div class="section-header">
+                <h2>常见急症与处理</h2>
+                <p>针对生活中常见的突发状况，提供科学的应对策略。</p>
+            </div>
+            <div class="quick-access">
+                <article class="card">
+                    <h3>中暑</h3>
+                    <p>移至阴凉处，解开衣扣，补充淡盐水。轻症可物理降温，重症需立即就医。</p>
+                </article>
+                <article class="card">
+                    <h3>烧烫伤</h3>
+                    <p>立即用流动冷水冲洗15-30分钟，切勿涂抹牙膏或酱油，水泡切勿挑破。</p>
+                </article>
+                <article class="card">
+                    <h3>骨折与脱位</h3>
+                    <p>不要随意移动伤肢，用夹板固定，避免二次伤害，等待救援。</p>
+                </article>
+                <article class="card">
+                    <h3>过敏性休克</h3>
+                    <p>立即注射肾上腺素，保持呼吸道通畅，平卧并监测生命体征。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="section-header" style="text-align: center; border: none; padding: 0;">
+                <h2>常见问题解答 (FAQ)</h2>
+                <p>关于急救知识与jlzz大全的常见疑问</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">急救时应该先打120还是先救人？</div>
+                <div class="faq-answer">
+                    在大多数情况下，应优先拨打120报警并说明地点和情况，同时立即开始心肺复苏或止血等自救互救措施。时间就是生命，专业医护人员到达前，现场人员的急救往往决定生死。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">按压胸骨时力度多大合适？</div>
+                <div class="faq-answer">
+                    成人按压深度应达到5-6厘米，按压频率保持在100-120次/分钟。过轻会导致无效按压，过重可能造成胸骨骨折或内脏损伤。
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">普通人需要多久学会急救？</div>
+                <div class="faq-answer">
+                    通过参加红十字会或正规机构的急救培训课程，通常半天到一天即可掌握心肺复苏和海姆立克急救法等基础技能。建议定期复训以保持熟练度。
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于 jlzz大全</h4>
+                <p>致力于提供最全面、最实用的急救知识查询服务，普及急救技能，提高全民自救互救能力。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#core">心肺复苏</a></li>
+                    <li><a href="#heimlich-guide">海姆立克急救</a></li>
+                    <li><a href="#trauma">外伤处理</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>急救资源</h4>
+                <ul>
+                    <li>中国红十字会</li>
+                    <li>120 急救中心</li>
+                    <li>急救技能培训</li>
+                </ul>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <p>免责声明：本网站内容仅供学习参考，不构成医疗建议。遇到紧急医疗状况，请立即拨打当地急救电话。</p>
+            <p>&copy; 2023 jlzz大全. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navUl = document.querySelector('nav ul');
+
+        mobileBtn.addEventListener('click', () => {
+            navUl.classList.toggle('show');
+        });
+
+        // FAQ 手风琴效果
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // 关闭其他已打开的项
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // 切换当前项
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
